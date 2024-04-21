@@ -39,9 +39,10 @@ namespace StardewValleyMoneyRankMod
                 debug.Log($"{rank.index + 1}位 | {rank.value.Name} | {rank.value.TotalMoney:N0} G |" ,LogLevel.Debug);
             }*/
 
-            for (int i = 0; i < showRankIn; i++)
+            int len = showRankIn < ranking.Count() ? showRankIn : ranking.Count();
+            
+            for (int i = 0; i < len; i++)
             {
-                if (i >= ranking.Count()) continue;
                 MoneyRankData data = ranking.ElementAt(i);
 
                 message += $"{i + 1}位{data.Name}\n";
